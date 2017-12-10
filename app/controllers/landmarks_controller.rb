@@ -13,7 +13,7 @@ class LandmarksController < ApplicationController
   end
 
   post "/landmarks/:id" do
-    
+
   end
 
   get "/landmarks/:id" do
