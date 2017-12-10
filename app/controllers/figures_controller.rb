@@ -36,21 +36,33 @@ class FiguresController < Sinatra::Base
     redirect to "/figures/#{@figure.id}"
   end
 
+  get "/figures/:id/edit" do
+    @figure = Figure.find_by_id(params[:id])
+    erb :"figures/edit"
+  end
+
   get "/figures/:id" do
     # binding.pry
     @figure = Figure.find_by_id(params[:id])
     erb :"figures/show"
   end
 
-  get "/figures/:id/edit" do
-    @figure = Figure.find_by_id(params[:id])
-    erb :"figures/edit"
-  end
 
   patch "/figures/:id" do
-    binding.pry
+    # binding.pry
     @figure = Figure.find_by_id(params[:id])
     @figure.name = params["figure_name"]
+  # binding.pry
+    if params[:new_landmark] !=""
+      @newlandmark = Landmark.create(name: params[:new_landmark])
+      @figure.landmarks << @newlandmark
+    end
+
+    if params[:new_title] !=""
+      @newtitle = Title.create(name: params[:new_title])
+      @figure.titles << @newtitle
+    end
+    @figure.save
 
     redirect to "/figures/#{@figure.id}"
   end
