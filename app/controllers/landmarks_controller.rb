@@ -4,6 +4,7 @@ class LandmarksController < ApplicationController
   register Sinatra::Twitter::Bootstrap::Assets
 
   get "/landmarks" do
+    binding.pry
     @landmarks = Landmark.all
     erb :"landmarks/index"
   end
