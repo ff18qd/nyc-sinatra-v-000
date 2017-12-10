@@ -30,9 +30,9 @@ class LandmarksController < ApplicationController
 
   patch "/landmarks/:id" do
     @landmark = Landmark.find_by_id(params[:id])
-    @figure.name = params["figure_name"]
+  
 
-    redirect to "/figures/#{@figure.id}"
+    redirect to "/landmarks/#{@landmark.id}"
   end
 
 end
