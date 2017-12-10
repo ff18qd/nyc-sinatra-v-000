@@ -7,12 +7,12 @@
 
   Existed Titles: <br>
   <% Title.all.each do |title| %>
-    <input id="<%= title.name %>" type="checkbox" name="figure[title_ids][]" value="<%= title.name %>"><%= title.name %></input>
+    <input id="title_<%= title.id %>" type="checkbox" name="figure[title_ids][]" value="<%= title.id %>"><%= title.name %></input>
   <% end %> <br>
 
   Existed Landmarks: <br>
   <% Landmark.all.each do |lan| %>
-    <input id="<%= lan.name %>" type="checkbox" name="figure[landmark_ids][]" value="<%= lan.name %>"><%= lan.name %></input>
+    <input id="landmark_<%= lan.id %>" type="checkbox" name="figure[landmark_ids][]" value="<%= lan.id %>"><%= lan.name %></input>
   <% end %> <br>
 
   <input type="submit" value="Create New Figure">
