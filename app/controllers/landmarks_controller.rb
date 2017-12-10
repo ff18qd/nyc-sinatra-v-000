@@ -27,6 +27,7 @@ class LandmarksController < ApplicationController
     @landmark = Landmark.find_by_id(params[:id])
     erb :"landmarks/edit"
   end
+
   patch "/landmarks/:id" do
     @figure = Figure.find_by_id(params[:id])
     @figure.name = params["figure_name"]
